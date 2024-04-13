@@ -17,7 +17,7 @@ const Header = () => {
           alt=""
         />
         <FlipClockCountdown
-          to={"2024-4-20 00:00"}
+          to={new Date("2024/4/20")}
           labels={["روز", "ساعت", "دقیقه", "ثانیه"]}
           labelStyle={{
             fontSize: 15,
