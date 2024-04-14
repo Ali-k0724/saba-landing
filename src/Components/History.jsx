@@ -2,10 +2,12 @@ import { useEffect, useRef, useState } from "react";
 import "../App.css";
 import svg1 from "../assets/Asset 13.png";
 import svg2 from "../assets/Asset 15.png";
-import svg3 from "../assets/Asset 17.png";
+import svg3 from "../assets/Asset 19@2x.png";
+import image from "../assets/Saba contest 4 main poster (Landescape).png";
+import mobileimage from "../assets/Saba Contest 4 main poster (1).png";
 
 import Event from "./Event";
-const History = () => {
+const History = ({ width }) => {
   const ref = useRef(null);
   const [isVisable, setIsVisable] = useState(false);
 
@@ -57,7 +59,7 @@ const History = () => {
           ></div>
         </div>
         <div
-          className={`mt-8 md:w-9/12 items-center flex flex-col mx-auto mb-36 new-event ${
+          className={`mt-8 md:w-9/12 items-center flex flex-col mx-auto mb-20 new-event ${
             isVisable ? "fadeInDown" : null
           }`}
           ref={ref}
@@ -74,6 +76,10 @@ const History = () => {
             شرایط استاندارد برای برگزاری مسابقات را فراهم کنند که این مسابقه
             همچون قبل آبرومندانه در کرمان برگزار گردد.
           </p>
+          <img
+            src={width > 768 ? image : mobileimage}
+            className="rounded mt-5 w-[100vw]"
+          />
         </div>
       </div>
     </>

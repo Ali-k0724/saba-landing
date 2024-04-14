@@ -13,13 +13,12 @@
   src: url("./assets/YekanBakh-Medium.ttf");
 }
 
-.yekan-semi{
+.yekan-semi {
   font-family: yekan-semi;
 }
 
 body {
   font-family: yekan, sans-serif;
-  
 }
 
 input:focus ~ .input-text,
@@ -28,7 +27,7 @@ input:not(:placeholder-shown) ~ .input-text {
 }
 textarea:focus ~ .input-field,
 textarea:not(:placeholder-shown) ~ .input-field {
-  @apply text-blue-500 transform -translate-y-7 -translate-x-1 scale-75 bg-white;
+  @apply text-blue-500 transform -translate-y-5 -translate-x-1 scale-75 bg-white;
 }
 textarea {
   resize: none;
@@ -134,8 +133,6 @@ body {
 .input-select {
   @apply bg-none flex-1 p-4 cursor-pointer text-[15.5px] text-right text-black  bg-white;
   background-color: white;
-
-
 }
 .input-select::-ms-expand {
   display: none;
@@ -192,7 +189,6 @@ body {
 select:required:invalid {
   @apply text-gray-500;
 }
-
 
 option[value=""][disabled] {
   display: none;
@@ -353,6 +349,19 @@ input:-webkit-autofill:active {
   -webkit-box-shadow: 0 0 0 30px white inset !important;
 }
 
-.rtl{
+.rtl {
   direction: rtl;
 }
+
+@media screen and (min-height: 690px) {
+  .about {
+    @apply mt-48;
+  }
+}
+@media screen and (max-height: 690px) {
+  .about {
+    @apply mt-72;
+
+  }
+}
+

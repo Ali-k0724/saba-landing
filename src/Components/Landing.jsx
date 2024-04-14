@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import History from "./History";
 import Contact from "./Contact";
@@ -9,6 +9,14 @@ const Landing = () => {
   const { state, pathname } = useLocation();
   const { targetId } = state || {};
   const navigate = useNavigate();
+  const [width, setWidth] = useState(window.innerWidth);
+  const updateDimensions = () => {
+    setWidth(window.innerWidth);
+  };
+  useEffect(() => {
+    window.addEventListener("resize", updateDimensions);
+    return () => window.removeEventListener("resize", updateDimensions);
+  }, []);
   useEffect(() => {
     const el = document.getElementById(targetId);
     if (el) {
@@ -22,9 +30,9 @@ const Landing = () => {
 
   return (
     <>
-      <Header />
+      <Header width={width} />
       <About />
-      <History />
+      <History width={width} />
       <Contact />
     </>
   );

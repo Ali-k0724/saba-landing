@@ -1,8 +1,10 @@
 const About = () => {
   return (
-    <div className="w-10/12 mx-auto pt-24 md:pt-0" id="about">
-      <div className="font-semibold text-3xl text-center mb-16 md:mt-0 mt-16">درباره صبا</div>
-      <p className="rtl text-lg leading-8">
+    <div className="w-10/12 mx-auto md:mt-0 about" id="about">
+      <div className="font-semibold text-3xl text-center mb-10 md:mt-0 ">
+        درباره صبا
+      </div>
+      <p className="rtl text-lg leading-8 min-h-96">
         مسابقات برنامه نویسی ACM-ICPC (Association for Computing Machinery
         International Collegiate Programming Contest) یکی از معتبرترین و
         بزرگ‌ترین مسابقات بین‌المللی برنامه نویسی برای دانشجویان دانشگاه است.
