@@ -2,10 +2,8 @@ import { Link } from "react-router-dom";
 import image from "../assets/Saba Contest 4 site timer banner.png";
 import FlipClockCountdown from "@leenguyen/react-flip-clock-countdown";
 import "@leenguyen/react-flip-clock-countdown/dist/index.css";
-import { useEffect, useState } from "react";
 
-const Header = ({width}) => {
-
+const Header = ({ width }) => {
   return (
     <div
       className="md:h-[100vh] h-[88vh] w-[95%] mx-auto flex md:flex-row flex-col mb-5 md:mb-0"
@@ -13,13 +11,12 @@ const Header = ({width}) => {
     >
       <div className="md:my-auto my-20 fadeInLeft md:w-1/2 w-full flex flex-col items-center relative">
         <img
-          // className=" md:h-3/6 h-[37%] "
           className=" h-96 md:mt-14 mt-10  md:scale-125"
           src={image}
-          alt=""
+          alt="header-logo"
         />
         <FlipClockCountdown
-          to={new Date("2024/4/20")}
+          to={new Date("2024/5/10")}
           labels={["روز", "ساعت", "دقیقه", "ثانیه"]}
           labelStyle={{
             fontSize: 15,
@@ -55,19 +52,19 @@ const Header = ({width}) => {
           چهارمین دوره مسابقات برنامه نویسی صبا
         </div>
         <div className="rtl text-xl tracking-wide">
-          ۲۰ اردیبهشت ۱۴۰۳ | دانشگاه باهنر کرمان
+          ۲۰ اردیبهشت ۱۴۰۳ | دانشگاه شهید باهنر کرمان
         </div>
-        <div className="flex">
+        <div className="flex md:flex-row flex-col-reverse items-center mb-32">
           <Link to={"/info"}>
             <button className="mt-8 md:mt-14 border px-4 py-2.5 rounded-md border-red-500  bg-[#BE1E2F] text-white flex items-center justify-center hover:-translate-y-1 hover:shadow-lg hover:shadow-red-200 transition-all ">
               <span className="font-medium text-[17px]">اطلاعات بیشتر</span>
             </button>
           </Link>
-          {/* <Link to={"/register"}>
-            <button className="mt-14 border px-8 py-2.5 rounded-md border-[#04afef] bg-[#04afef] text-white flex items-center justify-center hover:-translate-y-1 hover:shadow-lg hover:shadow-blue-200 transition-all ml-4">
+          <Link to={"/register"}>
+            <button className="mt-14 border md:ml-4 px-12 md:px-10 py-2.5 rounded-md border-[#04afef] bg-[#04afef] text-white flex items-center justify-center hover:-translate-y-1 hover:shadow-lg hover:shadow-blue-200 transition-all ml-0">
               <span className="font-medium text-[17px]">ثبت نام</span>
             </button>
-          </Link> */}
+          </Link>
         </div>
       </div>
     </div>

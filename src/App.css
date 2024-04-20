@@ -150,8 +150,8 @@ body {
   /* border: 1px solid rgb(148 163 184); */
 }
 .register-select::after {
-  @apply absolute left-0 px-4 text-black w-fit cursor-pointer pointer-events-none;
-  content: "\2193";
+  @apply absolute left-0 px-4 text-black w-fit cursor-pointer pointer-events-none text-[22px];
+  content: "▾";
   transition: 0.25s all ease;
   /* position: absolute; */
   /* left: 0; */
@@ -365,3 +365,12 @@ input:-webkit-autofill:active {
   }
 }
 
+@screen md {
+  .scale-200 {
+    scale: 2;
+  }
+}
+
+.scale-300 {
+  scale: 3;
+}
