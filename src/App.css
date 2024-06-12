@@ -219,7 +219,7 @@ select {
 }
 
 .pagination-container {
-  @apply mt-10 bg-white px-4 py-1 rounded-3xl self-center content-center justify-self-center mx-auto items-center flex flex-row-reverse;
+  @apply mt-10 bg-white md:px-4 py-1 rounded-3xl self-center content-center justify-self-center mx-auto items-center flex flex-row-reverse max-w-fit;
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
 }
 
@@ -238,7 +238,7 @@ select {
   border-radius: 20%;
   /* font-size: 17px; */
 
-  @apply cursor-pointer flex items-center justify-center text-black text-base ml-2 outline-none;
+  @apply cursor-pointer flex items-center justify-center text-black text-base md:ml-2 outline-none;
 }
 
 .active-page {
@@ -361,7 +361,6 @@ input:-webkit-autofill:active {
 @media screen and (max-height: 690px) {
   .about {
     @apply mt-72;
-
   }
 }
 
@@ -373,4 +372,46 @@ input:-webkit-autofill:active {
 
 .scale-300 {
   scale: 3;
+}
+
+
+.loader {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: block;
+  margin:6px auto;
+  /* margin-inline: auto; */
+  position: relative;
+  color: #FFF;
+  box-sizing: border-box;
+  animation: animloader .75s linear infinite;
+}
+
+@keyframes animloader {
+  0% {
+    box-shadow: 11px 0 0 -1px,  30px 0 0 -1px,  -11px 0 0 -1px,  -30px 0 0 -1px;
+  }
+  25% {
+    box-shadow: 11px 0 0 -1px,  30px 0 0 -1px,  -11px 0 0 -1px,  -30px 0 0 1px;
+  }
+  50% {
+    box-shadow: 11px 0 0 -1px,  30px 0 0 -1px,  -11px 0 0 1px,  -30px 0 0 -1px;
+  }
+  75% {
+    box-shadow: 11px 0 0 1px,  30px 0 0 -1px,  -11px 0 0 -1px,  -30px 0 0 -1px;
+  }
+  100% {
+    box-shadow: 11px 0 0 -1px,  30px 0 0 1px,  -11px 0 0 -1px,  -30px 0 0 -1px;
+  }
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.no-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 }

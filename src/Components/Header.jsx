@@ -1,12 +1,12 @@
-import { Link } from "react-router-dom";
 import image from "../assets/Saba Contest 4 site timer banner.png";
 import FlipClockCountdown from "@leenguyen/react-flip-clock-countdown";
 import "@leenguyen/react-flip-clock-countdown/dist/index.css";
+import { Link } from "react-router-dom";
 
 const Header = ({ width }) => {
   return (
     <div
-      className="md:h-[100vh] h-[88vh] w-[95%] mx-auto flex md:flex-row flex-col mb-5 md:mb-0"
+      className="md:h-[100vh] h-[88vh] w-[95%] mx-auto flex md:flex-row flex-col mb-5 md:mb-0 items-center"
       id="home"
     >
       <div className="md:my-auto my-20 fadeInLeft md:w-1/2 w-full flex flex-col items-center relative">
@@ -47,22 +47,17 @@ const Header = ({ width }) => {
           className="absolute md:-bottom-10 bottom-0"
         />
       </div>
-      <div className="md:w-1/2 w-full font-semibold flex flex-col justify-center items-center fadeInRight ">
-        <div className="md:w-[80%] text-black md:text-[36px] text-4xl text-center md:leading-[4.25rem] leading-[3.75rem] font-black yekan-semi mb-5 md:mb-0">
-          چهارمین دوره مسابقات برنامه نویسی صبا
+      <div className="md:w-1/2 w-full font-semibold flex flex-col justify-center items-center fadeInRight text-center">
+        <div className="md:w-[100%] text-black md:text-[36px] text-4xl text-center md:leading-[4.25rem] leading-[3.75rem] font-black yekan-semi mb-5 md:mb-0">
+          چهارمین دوره مسابقات بین المللی برنامه نویسی صبا
         </div>
         <div className="rtl text-xl tracking-wide">
           ۲۰ اردیبهشت ۱۴۰۳ | دانشگاه شهید باهنر کرمان
         </div>
-        <div className="flex md:flex-row flex-col-reverse items-center mb-32">
+        <div className="flex md:flex-row flex-col-reverse items-center mb32">
           <Link to={"/info"}>
             <button className="mt-8 md:mt-14 border px-4 py-2.5 rounded-md border-red-500  bg-[#BE1E2F] text-white flex items-center justify-center hover:-translate-y-1 hover:shadow-lg hover:shadow-red-200 transition-all ">
               <span className="font-medium text-[17px]">اطلاعات بیشتر</span>
-            </button>
-          </Link>
-          <Link to={"/register"}>
-            <button className="mt-14 border md:ml-4 px-12 md:px-10 py-2.5 rounded-md border-[#04afef] bg-[#04afef] text-white flex items-center justify-center hover:-translate-y-1 hover:shadow-lg hover:shadow-blue-200 transition-all ml-0">
-              <span className="font-medium text-[17px]">ثبت نام</span>
             </button>
           </Link>
         </div>
@@ -72,3 +67,4 @@ const Header = ({ width }) => {
 };
 
 export default Header;
+

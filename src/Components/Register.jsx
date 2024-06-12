@@ -58,8 +58,9 @@ const Register = () => {
     currentStepIndex: phoneIndex,
     step: phoneStep,
     next: phoneNext,
+    back: phoneBack,
   } = useMultistepForm([
-    <div className="w-[65%]">
+    <div className={"w-[65%]"}>
       <Input
         title="شماره موبایل"
         className="h-12 w-full px-6 text-[17px] border-[1.5px] rounded-lg border-[1.5px]-opacity-50 outline-none focus:border-[1.5px]-blue-500 placeholder-gray-300 placeholder-opacity-0 transition duration-200 text-right"
@@ -68,10 +69,11 @@ const Register = () => {
         onChange={(e) => updateFields({ phoneNumber: e.target.value })}
         type={"text"}
         error={errors.phoneNumber}
+        tabindex="5"
       />
     </div>,
 
-    <div className="w-[65%]">
+    <div className="w-[45%]">
       <Input
         title="کد ارسالی"
         className="h-12 w-full px-6 text-[17px] border-[1.5px] rounded-lg border-[1.5px]-opacity-50 outline-none focus:border-[1.5px]-blue-500 placeholder-gray-300 placeholder-opacity-0 transition duration-200 text-right"
@@ -95,6 +97,7 @@ const Register = () => {
         step={phoneStep}
         currentStepIndex={phoneIndex}
         next={phoneNext}
+        back={phoneBack}
         setErrors={setErrors}
         complete={complete}
       />,
@@ -117,7 +120,7 @@ const Register = () => {
           .then(() => {
             complete == false &&
               axios
-                .post("http://localhost:3000/auth/verify-code", {
+                .post("/auth/verify-code", {
                   token: p2e(verifyCode),
                 })
                 .then(({ status }) => {
@@ -155,6 +158,7 @@ const Register = () => {
         await secondValidationSchema
           .validate(
             {
+              term: data.term,
               ...data,
             },
             { abortEarly: false }
@@ -166,7 +170,7 @@ const Register = () => {
             token &&
               (
                 await axios
-                  .post("http://localhost:3000/auth/signup", {
+                  .post("/auth/signup", {
                     name: data.firstName,
                     lastname: data.lastName,
                     repeatPassword: data.confirmPassword,
@@ -208,16 +212,17 @@ const Register = () => {
     }
   };
   const onExpire = () => {
-    toast.error("مشکلی پیش امده", {
-      position: "bottom-right",
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "colored",
-    });
+    setToken(null);
+    // toast.error("مشکلی پیش امده", {
+    //   position: "bottom-right",
+    //   autoClose: 5000,
+    //   hideProgressBar: false,
+    //   closeOnClick: true,
+    //   pauseOnHover: true,
+    //   draggable: true,
+    //   progress: undefined,
+    //   theme: "colored",
+    // });
   };
 
   const onError = (err) => {
@@ -276,7 +281,7 @@ const Register = () => {
               size="invisible"
               onVerify={handleSendData}
               onError={onError}
-              onExpire={onExpire}
+              // onExpire={onExpire}
               ref={captchaRef}
             />
           </form>

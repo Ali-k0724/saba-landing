@@ -7,6 +7,7 @@ import {
 } from "react-icons/md";
 import ReactPaginate from "react-paginate";
 import { BsArrowBarRight } from "react-icons/bs";
+import { useEffect, useLayoutEffect } from "react";
 const Table = ({ columns, data, className, paginate }) => {
   const table = useTable({ columns, data }, useSortBy, usePagination);
   const {
@@ -26,6 +27,9 @@ const Table = ({ columns, data, className, paginate }) => {
     rows,
   } = table;
   const { pageIndex } = state;
+  useLayoutEffect(() => {
+    setPageSize(15);
+  }, []);
   const handlePageClick = (event) => {
     gotoPage(event.selected);
     window.scrollTo(0, 0);
@@ -40,16 +44,13 @@ const Table = ({ columns, data, className, paginate }) => {
                 {headerGroup.headers.map((column) => (
                   <th
                     className="th text-center text-slate-500 text-[15px] font-medium py-3"
-                    {...column.getHeaderProps(
-                      // column.getSortByToggleProps(),
-                      {
-                        style: {
-                          minWidth: column.minWidth,
-                          maxWidth: column.maxWidth,
-                          width: column.width,
-                        },
-                      }
-                    )}
+                    {...column.getHeaderProps({
+                      style: {
+                        minWidth: column.minWidth,
+                        maxWidth: column.maxWidth,
+                        width: column.width,
+                      },
+                    })}
                   >
                     {column.render("Header")}
                     {column.isSorted ? (column.isSortedDesc ? " ▼" : " ▲") : ""}
@@ -87,7 +88,7 @@ const Table = ({ columns, data, className, paginate }) => {
           onPageChange={handlePageClick}
           pageCount={pageOptions.length}
           nextLabel={<MdOutlineKeyboardArrowLeft size={24} />}
-          renderOnZeroPageCount={true}
+          renderOnZeroPageCount={false}
           containerClassName={"pagination-container"}
           activeClassName={"active-page"}
           pageClassName={"page"}

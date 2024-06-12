@@ -31,7 +31,7 @@ const Login = () => {
     try {
       await schemea.validate(data, { abortEarly: false }).then(async () => {
         await axios
-          .post("http://localhost:3000/auth/login", {
+          .post("/auth/login", {
             nationalId: data.nationalId,
             password: data.password,
           })

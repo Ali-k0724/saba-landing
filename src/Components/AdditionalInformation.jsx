@@ -32,6 +32,7 @@ const AdditionalInformation = ({
         onChange={(e) => updateFields({ university: e.target.value })}
         type={"text"}
         error={errors.university}
+        tabindex="11"
       />
       <Input
         title={"رشته تحصیلی"}
@@ -41,6 +42,7 @@ const AdditionalInformation = ({
         onChange={(e) => updateFields({ major: e.target.value })}
         type={"text"}
         error={errors.major}
+        tabindex="12"
       />
 
       <div className="flex flex-row-reverse justify-between mb-1">
@@ -55,6 +57,7 @@ const AdditionalInformation = ({
               className="input-select ir-province"
               required
               onChange={(e) => updateFields({ state: e.target.value })}
+              tabindex="13"
             >
               <option value="" disabled selected>
                 استان
@@ -110,6 +113,7 @@ const AdditionalInformation = ({
               value={city}
               disabled={state == ""}
               onChange={(e) => updateFields({ city: e.target.value })}
+              tabindex="14"
             >
               <option value="" disabled selected>
                 شهر
@@ -136,6 +140,7 @@ const AdditionalInformation = ({
         onChange={(e) => updateFields({ postalcode: e.target.value })}
         type={"text"}
         error={errors.postalcode}
+        tabindex="15"
       />
       <div className="flex flex-row-reverse justify-between mb-3">
         <div className="w-[47%]">
@@ -148,6 +153,7 @@ const AdditionalInformation = ({
               name="format"
               id="format"
               className="input-select"
+              tabindex="16"
               required
               value={t_shirt}
               onChange={(e) => updateFields({ t_shirt: e.target.value })}
@@ -188,6 +194,7 @@ const AdditionalInformation = ({
               required
               value={degree}
               onChange={(e) => updateFields({ degree: e.target.value })}
+              tabindex="17"
             >
               <option value="" disabled selected>
                 مقطع تحصیلی
@@ -208,7 +215,7 @@ const AdditionalInformation = ({
         <textarea
           type="text"
           placeholder="Input"
-          className={`h-full mb-1.5 w-full px-6 text-[17px] border-[1.5px] rounded-lg  outline-none focus:border-blue-500 placeholder-gray-300 placeholder-opacity-0 transition duration-200 resize-none pt-2 text-right ${
+          className={`h-full mb-1.5 w-full px-6 text-[17px] text-right border-[1.5px] rounded-lg  outline-none focus:border-blue-500 placeholder-gray-300 placeholder-opacity-0 transition duration-200 resize-none pt-2 text-right ${
             errors.reason && "border-red-600"
           }`}
           value={reason}
@@ -216,6 +223,7 @@ const AdditionalInformation = ({
           onChange={(e) => updateFields({ reason: e.target.value })}
           error={errors.reason}
           id="textarea"
+          tabindex="18"
         />
         <label
           className="text-base text-slate-800 text-opacity-80  absolute right-5 top-3 px-1 transition duration-200 input-field cursor-text"
@@ -235,6 +243,7 @@ const AdditionalInformation = ({
           checked={residence}
           onChange={(e) => updateFields({ residence: !residence })}
           className="h-4 w-4 ml-3"
+          tabindex="19"
         />
         <div className="rtl">
           درخواست اسکان(ویژه شرکت کننندگان خارج از استان)
@@ -251,6 +260,7 @@ const AdditionalInformation = ({
           checked={illness}
           onChange={(e) => updateFields({ illness: !illness })}
           className="h-4 w-4 ml-3"
+          tabindex="20"
         />
         <label> دارای بیماری های خاص هستم.</label>
       </div>
@@ -264,6 +274,7 @@ const AdditionalInformation = ({
           onChange={(e) => updateFields({ illnesText: e.target.value })}
           type={"text"}
           error={errors.illnesText}
+          tabindex="21"
         />
       )}
       <div className="rtl flex items-center">
@@ -271,7 +282,11 @@ const AdditionalInformation = ({
           type="checkbox"
           className="h-4 w-4 ml-3"
           value={term}
-          onChange={(e) => updateFields({ term: !illness })}
+          onChange={(e) => {
+            updateFields({ term: !term });
+            console.log(e.target.value)
+          }}
+          tabindex="22"
         />
         <label>
           تمامی

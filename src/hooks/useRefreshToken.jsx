@@ -7,7 +7,7 @@ const useRefreshToken = () => {
   const refresh = async () => {
     let d;
     try {
-      const { data } = await axios.get("http://localhost:3000/auth/refresh");
+      const { data } = await axios.get("/auth/refresh");
       setAuth(data);
       d = data.accessToken;
     } catch (error) {

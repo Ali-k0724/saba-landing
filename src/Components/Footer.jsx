@@ -4,9 +4,9 @@ import logo2 from "../assets/Saba Logo Red(University).png";
 import logo3 from "../assets/Saba Logo Yellow(CS Association).png";
 import logo4 from "../assets/IMG_7341.png";
 import logo5 from "../assets/IMG_7339.png";
+import logo6 from "../assets/Logo New.png";
 import ita from "../assets/ita.png";
 import insta from "../assets/Instagram 2022 New.svg";
-import { FaWhatsappSquare } from "react-icons/fa";
 import { IoLocationOutline } from "react-icons/io5";
 
 const Footer = () => {
@@ -15,11 +15,12 @@ const Footer = () => {
       <div className="w-11/12 flex md:flex-row flex-col-reverse flex-1">
         <div className="md:w-1/2 flex flex-col items-end justify-center md:h-full h-1/2 mx-auto w-full">
           <div className="text-[1.8em]">مسابقه صبا ۴</div>
-          <div className="flex mt-5 w-full md:w-6/12 justify-between items-center">
-            <img src={logo1} alt="" className="w-20 h-20 mr-2 md:mr-6" />
-            <img src={logo3} alt="" className="w-20 h-20 mr-2 md:mr-6" />
+          <div className="flex mt-5 w-full justify-between md:justify-end items-center">
+            <img src={logo6} alt="" className=" mr-2 md:mr-8" />
+            <img src={logo1} alt="" className=" mr-2 md:mr-8" />
+            <img src={logo3} alt="" className=" mr-2 md:mr-8" />
             <a href="https://uk.ac.ir/">
-              <img src={logo2} alt="" className="w-20 h-20" />
+              <img src={logo2} alt="" className="min-w-fit" />
             </a>
           </div>
         </div>

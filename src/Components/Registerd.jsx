@@ -1,15 +1,14 @@
 import { useEffect, useMemo, useState } from "react";
 import Table from "./Table";
-import { GoBookmark } from "react-icons/go";
-import axios from "axios";
+import users from "../assets/participants-table.json";
 const Registerd = () => {
   const [data, setData] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
+
   useEffect(() => {
-    axios
-      .get("http://localhost:3000/table/data")
-      .then(({ data }) => setData(data.data))
-      .finally(() => setIsLoading(false));
+    const sortedUsers = users.data.sort((a, b) => {
+      return b?.verified - a?.verified;
+    });
+    setData(sortedUsers);
   }, []);
 
   const columns = useMemo(
@@ -50,7 +49,7 @@ const Registerd = () => {
           </div>
         ),
         Cell: ({ row }) => (
-          <div className=" cursor-pointer">
+          <div className="">
             <div>{row.original.last_name}</div>
           </div>
         ),
@@ -62,7 +61,7 @@ const Registerd = () => {
           <div className="font-extrabold yekan-semi text-black">نام </div>
         ),
         Cell: ({ row }) => (
-          <div className=" cursor-pointer">
+          <div className="">
             <div>{row.original.first_name}</div>
           </div>
         ),
@@ -76,7 +75,7 @@ const Registerd = () => {
           </div>
         ),
         Cell: ({ row }) => (
-          <div className="text-right mr-8 cursor-pointer">
+          <div className="text-right mr-8">
             <div>{row.index + 1}</div>
           </div>
         ),
@@ -87,28 +86,27 @@ const Registerd = () => {
   );
   return (
     <>
-      <div className="min-h-screen">
+      <div className="min-h-screen pb-10">
         <h1 className="text-2xl mt-32 mx-auto mb-16 text-center yekan-semi">
           اسامی شرکت کنندگان صبا ۴
         </h1>
-        {data.length > 0 ? (
-          <div className="w-10/12 mx-auto">
-            {/* {!isLoading && ( */}
+        <div className="w-10/12 mx-auto">
+          {data?.length > 0 ? (
             <Table
               columns={columns}
               data={data}
               className={
                 "bg-white w-full p2 border-[1.5] rounded-lg shadow-g overflow-auto"
               }
-              //   paginate
+              paginate={true}
             />
-            {/* )} */}
-          </div>
-        ) : (
-          <div className="rtl text-center text-lg">
-            تا کنون کسی ثبت نام نکرده.
-          </div>
-        )}
+          ) : (
+            <div className="rtl text-center text-lg">
+              بعد از بررسی‌های لازم نتایج به زودی در این صفحه قرار داده خواهد
+              شد.
+            </div>
+          )}
+        </div>
       </div>
     </>
   );

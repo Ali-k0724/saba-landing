@@ -4,6 +4,7 @@ import useComponentVisible from "../hooks/useComponentVisible";
 import * as Yup from "yup";
 import "react-toastify/dist/ReactToastify.css";
 import { toast } from "react-toastify";
+import axios from "axios";
 const Contact = () => {
   const { ref, isVisable } = useComponentVisible();
   const [errors, setErrors] = useState({});

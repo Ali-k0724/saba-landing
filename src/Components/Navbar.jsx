@@ -1,15 +1,12 @@
 import React, { useState } from "react";
 import { RxHamburgerMenu } from "react-icons/rx";
-import { AuthState } from "../contexts/AuthContext";
 import { GrClose } from "react-icons/gr";
 
 import logo from "../assets/logo.png";
-import { Link, useNavigate, useSearchParams } from "react-router-dom";
-import { IoPersonCircleSharp } from "react-icons/io5";
+import { Link, useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   const [sidebar, setSidebar] = useState(false);
-  const { auth } = AuthState();
   const navigate = useNavigate();
 
   return (
@@ -24,7 +21,7 @@ const Navbar = () => {
             <img src={logo} alt="" />
           </div>
         </div>
-        <div className="lg:flex flex-row-reverse hidden justify-between w-[55%] text-base mr-28">
+        <div className="lg:flex flex-row-reverse hidden justify-between w-[65%] text-base mr-28">
           <div
             className="hover:text-blue-500 mr-4 cursor-pointer"
             onClick={() => {
@@ -52,6 +49,14 @@ const Navbar = () => {
           <div
             className="hover:text-blue-500 mr-4 cursor-pointer"
             onClick={() => {
+              navigate("/scoreboard");
+            }}
+          >
+            اسکوربرد
+          </div>
+          <div
+            className="hover:text-blue-500 mr-4 cursor-pointer"
+            onClick={() => {
               navigate("/info");
             }}
           >
@@ -75,31 +80,6 @@ const Navbar = () => {
             تماس با ما
           </div>
         </div>
-        {/* {!auth == "" ? (
-          <div className="flex-row-reverse items-center relative h-full mr-auto hidden md:flex">
-            <IoPersonCircleSharp
-              size={52.5}
-              className="cursor-pointer lg:block hidden"
-              onClick={() => navigate("/profile")}
-            />
-          </div>
-        ) :  */}
-        {/* ( */}
-        <>
-          <Link
-            to={"/register"}
-            className="mr-auto bg-[#04afef]  text-white px-6 py-2.5 rounded-md hidden md:block yekan-semi"
-          >
-            ثبت نام
-          </Link>
-          {/* <Link
-              to={"/login"}
-              className="mr-4 bg-[#F9B219] ] text-white px-8 py-2.5 rounded-md hidden md:block yekan-semi"
-            >
-              ورود
-            </Link> */}
-        </>
-        {/* )} */}
         <RxHamburgerMenu
           className="lg:hidden cursor-pointer"
           size={25}
@@ -123,16 +103,6 @@ const Navbar = () => {
           />
 
           <div className="flex flex-col h-[55%] justify-between mx-auto w-10/12 text-lg mt-[4.5rem] ">
-            <div
-              className="hover:text-blue-500 mx-auto"
-              onClick={() => {
-                setSidebar(false);
-                document.documentElement.style.overflowY = "auto";
-                navigate("/register");
-              }}
-            >
-              ثبت نام
-            </div>
             <div
               className="hover:text-blue-500 mx-auto"
               onClick={() => {
@@ -162,6 +132,16 @@ const Navbar = () => {
               }}
             >
               تاریخچه
+            </div>
+            <div
+              className="hover:text-blue-500 mx-auto"
+              onClick={() => {
+                setSidebar(false);
+                document.documentElement.style.overflowY = "auto";
+                navigate("/scoreboard");
+              }}
+            >
+              اسکوربرد
             </div>
 
             <div
